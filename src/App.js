@@ -11,9 +11,10 @@ function App(props) {
     <div className="App">
       <NavBar />
       <Switch>
-        <Route exact path='/' component={Home}></Route>
-        <Route exact path='/signup' component={() => <Signup />}></Route>
-        <Route exact path='/login' component={() => <Login />}></Route>
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/signup' component={Signup}/> 
+        {/* <Route exact path='/login' render={() => <Login />}></Route> */}
+        <Route exact path='/login' component={Login}/>
       </Switch>
     </div>
   );

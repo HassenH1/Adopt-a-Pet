@@ -1,21 +1,25 @@
 import React, { useState } from 'react'
-import { Form } from "./styled"
 import { connect } from 'react-redux'
 import { addUser } from '../redux/action'
+import { Background, Form, Inputs, Button } from "./styled"
 
 function Signup(props) {
+
   const [input, setInput] = useState({
     email: "",
     username: "",
     password: ""
   })
+
   const [error, setError] = useState()
+
   const handleInput = (e) => {
     setInput({
       ...input,
       [e.target.name]: e.target.value
     })
   }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (input.email === "" || input.username === "" || input.password === "") {
@@ -37,10 +41,12 @@ function Signup(props) {
       props.addingUser(input)
       //clearing fields
       clearFields()
+      console.log(props, "<----------------props")
     } catch (err) {
       console.log(err)
     }
   }
+
   const clearFields = (e) => {
     setInput({
       username: "",
@@ -48,18 +54,19 @@ function Signup(props) {
       password: ""
     })
   }
+
   return (
-    <div style={{ height: "100%", margin: "0 auto", textAlign: "center" }}>
+    <Background>
       <Form onSubmit={handleSubmit}>
-        <h3>SignUp</h3>
+        <h3>Sign Up</h3>
         <label>Username</label>
-        <input placeholder="username" onChange={handleInput} name="username" value={input.username} type="username" />
+        <Inputs placeholder="username" onChange={handleInput} name="username" value={input.username} type="username" />
         <label>E-mail</label>
-        <input placeholder="email" onChange={handleInput} name="email" value={input.email} type="email" />
+        <Inputs placeholder="email" onChange={handleInput} name="email" value={input.email} type="email" />
         <label>Password</label>
-        <input placeholder="password" onChange={handleInput} name="password" value={input.password} type="password" />
+        <Inputs placeholder="password" onChange={handleInput} name="password" value={input.password} type="password" />
         <br />
-        <button>Submit</button>
+        <Button>Submit</Button>
         <div style={{ textAlign: "center", color: "red" }}>{error}</div>
       </Form>
       {
@@ -71,19 +78,19 @@ function Signup(props) {
           </div>
           : ""
       }
-    </div>
+    </Background>
   )
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addingUser: input => dispatch(addUser(input))
-  }
 }
 
 const mapStateToProps = (state) => {
   return {
     user: state.user
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addingUser: input => dispatch(addUser(input))
   }
 }
 

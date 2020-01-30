@@ -5,7 +5,7 @@ const initialUser = {
 }
 
 const userReducer = (state = initialUser, action) => {
-  if(action.type === ADD_USER){
+  if (action.type === ADD_USER) {
     return {
       user: action.payload
     }

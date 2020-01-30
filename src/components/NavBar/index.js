@@ -7,14 +7,14 @@ function NavBar() {
     <NLink>
       <Div>
         <div>
-        <Links href="/">Home</Links>
+        <Links exact to="/">Home</Links>
         </div>
         <div>
           Adopt-A-Pet
         </div>
         <div style={{width: "90px"}}>
-          <Links href="/signup">SignUp</Links>
-          <Links href="/login">Login</Links>
+          <Links exact to="/signup">SignUp</Links>
+          <Links exact to="/login">Login</Links>
           {/* <Links href="">Logout</Links> */}
         </div>
       </Div>
