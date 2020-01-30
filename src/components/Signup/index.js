@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { addUser } from '../redux/action'
-import { Background, Form, Inputs, Button } from "./styled"
+import { Background, Form, Inputs, Button, FormMoving } from "./styled"
 
 function Signup(props) {
 
@@ -57,27 +57,20 @@ function Signup(props) {
 
   return (
     <Background>
-      <Form onSubmit={handleSubmit}>
-        <h3>Sign Up</h3>
-        <label>Username</label>
-        <Inputs placeholder="username" onChange={handleInput} name="username" value={input.username} type="username" />
-        <label>E-mail</label>
-        <Inputs placeholder="email" onChange={handleInput} name="email" value={input.email} type="email" />
-        <label>Password</label>
-        <Inputs placeholder="password" onChange={handleInput} name="password" value={input.password} type="password" />
-        <br />
-        <Button>Submit</Button>
-        <div style={{ textAlign: "center", color: "red" }}>{error}</div>
-      </Form>
-      {
-        props.user
-          ? <div>
-            <h3>{props.user.username}</h3>
-            <h3>{props.user.email}</h3>
-            <h3>{props.user.password}</h3>
-          </div>
-          : ""
-      }
+      <FormMoving>
+        <Form onSubmit={handleSubmit}>
+          <h3>Sign Up</h3>
+          <label>Username</label>
+          <Inputs placeholder="username" onChange={handleInput} name="username" value={input.username} type="username" />
+          <label>E-mail</label>
+          <Inputs placeholder="email" onChange={handleInput} name="email" value={input.email} type="email" />
+          <label>Password</label>
+          <Inputs placeholder="password" onChange={handleInput} name="password" value={input.password} type="password" />
+          <br />
+          <Button>Submit</Button>
+          <div style={{ textAlign: "center", color: "red" }}>{error}</div>
+        </Form>
+      </FormMoving>
     </Background>
   )
 }

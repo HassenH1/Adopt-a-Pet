@@ -8,7 +8,7 @@ import Login from "./components/Login"
 
 function App(props) {
   return (
-    <div className="App">
+    <div>
       <NavBar />
       <Switch>
         <Route exact path='/' component={Home}/>

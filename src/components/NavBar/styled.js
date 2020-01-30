@@ -6,7 +6,7 @@ export const NLink = styled.nav`
   background-color: whitesmoke;
   height: 3rem;
   box-shadow: 20px 10px 100px grey;
-  position: relative; 
+  position: absolute; 
   z-index: 1;
 `
 

@@ -7,7 +7,9 @@ function Home(props) {
     <BackgroundColor>
       {
         props.user
-          ? <h3>{props.user.username}</h3>
+          ? <div>
+              <h3>{props.user.username}</h3>
+           </div>
           : ""
       }
     </BackgroundColor>
