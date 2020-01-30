@@ -1,5 +1,5 @@
 import styled from "styled-components"
-// import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 export const NLink = styled.nav`
   width: 97.8vw;
@@ -12,7 +12,7 @@ export const Div = styled.div`
   justify-content: space-evenly;
 `
 
-export const Links = styled.a`
+export const Links = styled(NavLink)`
   padding: 1rem;
   &:hover {
     background-color: #ddd;
