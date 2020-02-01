@@ -5,28 +5,26 @@ import Swipeable from "react-swipy"
 import Button from "../Button";
 import Card from "../Card";
 
-const wrapperStyles = { position: "relative", width: "250px", height: "250px" };
+const wrapperStyles = { position: "relative", width: "350px", height: "250px", margin: "0 auto", paddingTop: "5rem" };
+
+const wrapperStylesEnd = { position: "relative", width: "350px", height: "250px", margin: "100px auto" };
 
 const actionsStyles = {
   display: "flex",
   justifyContent: "space-between",
-  marginTop: 12,
+  marginTop: 250,
 };
 
 function Home(props) {
   const [cards, setCards] = useState(["hassen", "life", "trash"])
 
   const remove = () => {
-    // return setCards(({ cards }) => ({ cards: cards.slice(1, cards.length) }));
-    setCards((cards) => ({
-      cards: [...cards.slice(1, cards.length)]
-    }))
+    setCards(cards.slice(1, cards.length))
   }
 
   return (
     <BackgroundColor>
       <div>
-        {console.log(cards, "<---------------------------------dealing with cards here")}
         <div style={wrapperStyles}>
           {cards.length > 0 ? (
             <div style={wrapperStyles}>
@@ -44,7 +42,9 @@ function Home(props) {
               {cards.length > 1 && <Card zIndex={-1}>{cards[1]}</Card>}
             </div>
           ) : (
-              <Card zIndex={-2}>No more cards</Card>
+              <div style={wrapperStylesEnd}>
+                <Card>Sign up to see More...</Card>
+              </div>
             )}
         </div>
       </div>

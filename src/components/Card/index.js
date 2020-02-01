@@ -3,8 +3,8 @@ import React from "react";
 const cardStyles = {
   background: "whitesmoke",
   borderRadius: 3,
-  width: "250px",
-  height: "250px",
+  width: "350px",
+  height: "460px",
   cursor: "pointer",
   userSelect: "none",
   position: "absolute",
