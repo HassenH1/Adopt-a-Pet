@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { NLink, Div, Links } from './styled'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
+import { Manager, Reference, Popper } from 'react-popper';
 
 function NavBar(props) {
   return (
@@ -21,11 +22,24 @@ function NavBar(props) {
               <Links exact to="/profile">Profile</Links>
               <Links exact to="logout">Logout</Links>
             </div>
-            : <div style={{ width: "90px" }}>
-              <Links exact to="/signup">SignUp</Links>
-              <Links exact to="/login">Login</Links>
-              {/* <Links href="">Logout</Links> */}
-            </div>
+            : <Manager>
+              <Reference>
+                {({ ref }) => (
+                  <div style={{ width: "90px" }}>
+                    <Links exact to="/signup" ref={ref}>SignUp</Links>
+                    <Links exact to="/login" ref={ref}>Login</Links>
+                  </div>
+                )}
+              </Reference>
+              <Popper placement="bottom">
+                  {({ ref, style, placement, arrowProps }) => (
+                    <div ref={ref} style={style} data-placement={placement}>
+                      Popper Element
+                      <div ref={arrowProps.ref} style={arrowProps.style}></div>
+                    </div>
+                  )}
+              </Popper>
+            </Manager>
         }
       </Div>
     </NLink>
