@@ -31,11 +31,14 @@ const tokenGet = () => {
 
 let token = ""
 
+console.log(token, "<--------------------what token is this?")
+
 app.get("/", (req, res) => {
-  if (token === "") {
-    tokenGet()
-  }
-  console.log(token, "<---------------------is it a new token everytim")
+  console.log(token, "<----------before the function token value")
+  token === ""
+    ? (console.log(token), tokenGet())
+    : console.log("")
+
   fetch('https://api.petfinder.com/v2/animals?sort=random', {
     method: "GET",
     headers: {
