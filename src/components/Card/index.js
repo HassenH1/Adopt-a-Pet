@@ -3,7 +3,7 @@ import React from "react";
 const cardStyles = {
   background: "whitesmoke",
   borderRadius: 3,
-  width: "350px",
+  width: "320px",
   height: "460px",
   cursor: "pointer",
   userSelect: "none",
@@ -11,7 +11,8 @@ const cardStyles = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  top: 0
+  top: 0,
+  border: "1rem solid white"
 };
 
 const Card = ({ zIndex = 0, children }) => (

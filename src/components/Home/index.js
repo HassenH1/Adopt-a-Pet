@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { NavLink, withRouter } from 'react-router-dom'
+import { compose } from 'redux'
 import { BackgroundColor } from "./styled"
 import Swipeable from "react-swipy"
 import Button from "../Button";
@@ -16,7 +18,6 @@ const actionsStyles = {
 };
 
 function Home(props) {
-  const [cards, setCards] = useState(["hassen", "life", "trash"])
   const [data, setData] = useState({})
 
   const fetchingData = async () => {
@@ -36,7 +37,9 @@ function Home(props) {
   }, [])
 
   const remove = () => {
-    setCards(cards.slice(1, cards.length))
+    setData((data) => (
+      { animals: [...data.animals.slice(1, data.animals.length)] }
+    ));
   }
 
   return (
@@ -58,9 +61,13 @@ function Home(props) {
                 {/* <Card>{cards[0]}</Card> */}
                 <Card>
                   {
-                    data.animals[0].photos.length === 0
+                    data.animals && data.animals[0].photos.length === 0
                       ? <div>No Image Available</div>
-                      : <img src={data.animals[0].photos[0].large} alt="adopt-a-pet"/>
+                      : (
+                        <NavLink exact to={`/animal/${data.animals[0].id}`}><img src={data.animals[0].photos[0].full} alt="animals" style={{maxWidth:"100%", 
+                        maxHeight: "100%",
+                        objectFit: "fill", 
+                        backgroundSize: "cover", backgroundPosition: "center"}}/></NavLink>)
                   }
                 </Card>
               </Swipeable>
@@ -83,4 +90,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Home)
+export default compose(
+  withRouter,
+  connect(mapStateToProps)
+)(Home)
