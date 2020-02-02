@@ -13,8 +13,6 @@ app.use(cors())
 app.use(express.json())
 app.use(methodOverride('_method'));
 
-let token = ""
-
 const tokenGet = () => {
   fetch('https://api.petfinder.com/v2/oauth2/token', {
     method: "POST",
@@ -31,9 +29,13 @@ const tokenGet = () => {
     .then(data => token = data)
 }
 
+let token = ""
+
 app.get("/", (req, res) => {
-  tokenGet()
-  console.log(token, "<---------------------token??")
+  if (token === "") {
+    tokenGet()
+  }
+  console.log(token, "<---------------------is it a new token everytim")
   fetch('https://api.petfinder.com/v2/animals?sort=random', {
     method: "GET",
     headers: {
