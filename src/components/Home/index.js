@@ -44,7 +44,11 @@ function Home(props) {
 
   return (
     <BackgroundColor>
-      {console.log(data.animals, "<---------fetch worked or nah?")}
+      {
+        props.user.username
+          ? <h3 style={{left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px"}}>Welcome {props.user.username}!</h3>
+          : <h3 style={{left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px"}}>Welcome</h3>
+      }
       <div>
         <div style={wrapperStyles}>
           {data.animals && data.animals.length > 0 ? (
@@ -64,10 +68,12 @@ function Home(props) {
                     data.animals && data.animals[0].photos.length === 0
                       ? <div>No Image Available</div>
                       : (
-                        <NavLink exact to={`/animal/${data.animals[0].id}`}><img src={data.animals[0].photos[0].full} alt="animals" style={{maxWidth:"100%", 
-                        maxHeight: "100%",
-                        objectFit: "fill", 
-                        backgroundSize: "cover", backgroundPosition: "center"}}/></NavLink>)
+                        <NavLink exact to={`/animal/${data.animals[0].id}`}><img src={data.animals[0].photos[0].full} alt="animals" style={{
+                          maxWidth: "100%",
+                          maxHeight: "100%",
+                          objectFit: "fill",
+                          backgroundSize: "cover", backgroundPosition: "center"
+                        }} /></NavLink>)
                   }
                 </Card>
               </Swipeable>

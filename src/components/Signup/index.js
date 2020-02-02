@@ -41,7 +41,7 @@ function Signup(props) {
       props.addingUser(input)
       //clearing fields
       clearFields()
-      console.log(props, "<----------------props")
+      props.history.push("/")
     } catch (err) {
       console.log(err)
     }

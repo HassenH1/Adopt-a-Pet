@@ -17,7 +17,8 @@ function NavBar(props) {
         {console.log(props.user, "<----------------from user in Navbar")}
         {
           props.user
-            ? <div>
+            ? <div style={{ width: "90px" }}>
+              <Links exact to="/profile">Profile</Links>
               <Links exact to="logout">Logout</Links>
             </div>
             : <div style={{ width: "90px" }}>
