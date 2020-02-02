@@ -35,9 +35,21 @@ console.log(token, "<--------------------what token is this?")
 
 app.get("/", (req, res) => {
   console.log(token, "<----------before the function token value")
-  token === ""
-    ? (console.log(token), tokenGet())
-    : console.log("")
+  // token === ""
+  //   ? (console.log(token), tokenGet())
+  //   : console.log("")
+  if(token === ""){
+    tokenGet()
+    fetch('https://api.petfinder.com/v2/animals?sort=random', {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token.access_token}`
+      }
+    })
+      .then(res => res.json())
+      .then(json => res.send(json));
+  }
 
   fetch('https://api.petfinder.com/v2/animals?sort=random', {
     method: "GET",
