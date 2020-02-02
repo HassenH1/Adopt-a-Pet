@@ -28,8 +28,13 @@ const tokenGet = () => {
     })
   })
   .then(res => res.json())
-  .then(data => token = data)
+  .then(data => {
+    token = data
+    console.log(token, "<-----------token???")
+  })
 }
+
+console.log(token, "<---------------------outside token?")
 
 app.post('/signup', async (req, res) => {
   console.log("are we there yet?")
