@@ -13,7 +13,7 @@ app.use(cors())
 app.use(express.json())
 app.use(methodOverride('_method'));
 
-let token = "";
+let token = ""
 
 const tokenGet = () => {
   fetch('https://api.petfinder.com/v2/oauth2/token', {
@@ -27,14 +27,23 @@ const tokenGet = () => {
       "grant_type": "client_credentials"
     })
   })
-  .then(res => res.json())
-  .then(data => {
-    token = data
-    console.log(token, "<-----------token???")
-  })
+    .then(res => res.json())
+    .then(data => token = data)
 }
 
-console.log(token, "<---------------------outside token?")
+app.get("/", (req, res) => {
+  tokenGet()
+  console.log(token, "<---------------------token??")
+  fetch('https://api.petfinder.com/v2/animals?sort=random', {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token.access_token}`
+    }
+  })
+    .then(res => res.json())
+    .then(json => res.send(json));
+})
 
 app.post('/signup', async (req, res) => {
   console.log("are we there yet?")
@@ -45,24 +54,6 @@ app.post('/signup', async (req, res) => {
   } catch (err) {
     console.log(err)
   }
-})
-
-app.get("/", (req,res) => {
-  if(!token.access_token){
-    tokenGet()
-  }
-  fetch('https://api.petfinder.com/v2/animals?sort=random', {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${token.access_token}`
-    }
-  })
-    .then(res => res.json())
-    .then(json => {
-      console.log(json, "<------------what am i sending out?")
-      res.send(json)
-    });
 })
 
 app.listen(PORT, () => {
