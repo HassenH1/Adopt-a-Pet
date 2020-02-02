@@ -41,10 +41,10 @@ function Home(props) {
 
   return (
     <BackgroundColor>
-      {console.log(data, "<---------fetch worked or nah?")}
+      {console.log(data.animals, "<---------fetch worked or nah?")}
       <div>
         <div style={wrapperStyles}>
-          {cards.length > 0 ? (
+          {data.animals && data.animals.length > 0 ? (
             <div style={wrapperStyles}>
               <Swipeable
                 buttons={({ left, right }) => (
@@ -55,9 +55,16 @@ function Home(props) {
                 )}
                 onAfterSwipe={remove}
               >
-                <Card>{cards[0]}</Card>
+                {/* <Card>{cards[0]}</Card> */}
+                <Card>
+                  {
+                    data.animals[0].photos.length === 0
+                      ? <div>No Image Available</div>
+                      : <img src={data.animals[0].photos[0].large} alt="adopt-a-pet"/>
+                  }
+                </Card>
               </Swipeable>
-              {cards.length > 1 && <Card zIndex={-1}>{cards[1]}</Card>}
+              {data.animals.length > 1 && <Card zIndex={-1}>{data.animals[1].type}</Card>}
             </div>
           ) : (
               <div style={wrapperStylesEnd}>

@@ -13,8 +13,8 @@ app.use(cors())
 app.use(express.json())
 app.use(methodOverride('_method'));
 
-const tokenGet = () => {
-  fetch('https://api.petfinder.com/v2/oauth2/token', {
+const tokenGet = async () => {
+  await fetch('https://api.petfinder.com/v2/oauth2/token', {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -31,24 +31,9 @@ const tokenGet = () => {
 
 let token = ""
 
-console.log(token, "<--------------------what token is this?")
-
 app.get("/", (req, res) => {
-  console.log(token, "<----------before the function token value")
-  // token === ""
-  //   ? (console.log(token), tokenGet())
-  //   : console.log("")
   if(token === ""){
     tokenGet()
-    fetch('https://api.petfinder.com/v2/animals?sort=random', {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token.access_token}`
-      }
-    })
-      .then(res => res.json())
-      .then(json => res.send(json));
   }
 
   fetch('https://api.petfinder.com/v2/animals?sort=random', {
