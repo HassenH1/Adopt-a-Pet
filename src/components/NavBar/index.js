@@ -32,12 +32,12 @@ function NavBar(props) {
                 )}
               </Reference>
               <Popper placement="bottom">
-                  {({ ref, style, placement, arrowProps }) => (
-                    <div ref={ref} style={style} data-placement={placement}>
-                      Popper Element
-                      <div ref={arrowProps.ref} style={arrowProps.style}></div>
-                    </div>
-                  )}
+                {({ ref, style, placement, arrowProps }) => (
+                  <div ref={ref} style={{ width: 120, height: 120, background: '#b4da55' }} data-placement={placement}>
+                    SignUp or Login Here!!
+                    <div ref={arrowProps.ref} style={arrowProps.style} />
+                  </div>
+                )}
               </Popper>
             </Manager>
         }
