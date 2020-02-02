@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { BackgroundColor } from "./styled"
 import Swipeable from "react-swipy"
@@ -17,6 +17,23 @@ const actionsStyles = {
 
 function Home(props) {
   const [cards, setCards] = useState(["hassen", "life", "trash"])
+  const [data, setData] = useState({})
+
+  const fetchingData = async () => {
+    const data = await fetch("http://localhost:8000/", {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    const dataJson = await data.json()
+    setData({ ...dataJson })
+  }
+
+  useEffect(() => {
+    fetchingData()
+  }, [])
 
   const remove = () => {
     setCards(cards.slice(1, cards.length))
@@ -24,6 +41,7 @@ function Home(props) {
 
   return (
     <BackgroundColor>
+      {console.log(data, "<---------fetch worked or nah?")}
       <div>
         <div style={wrapperStyles}>
           {cards.length > 0 ? (
