@@ -1,16 +1,88 @@
-import React from 'react'
-import { Background, Form } from "./styled"
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import { addUser } from '../redux/action'
+import { Background, Form, Inputs, Button, FormMoving } from "./styled"
 
-function Login() {
+function Login(props) {
+
+  const [input, setInput] = useState({
+    email: "",
+    username: "",
+    password: ""
+  })
+
+  const [error, setError] = useState()
+
+  const handleInput = (e) => {
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (input.email === "" || input.username === "" || input.password === "") {
+      setError("Missing cetain Values")
+      setTimeout(() => {
+        setError("")
+      }, 5000)
+      return
+    }
+    try {
+      await fetch("http://localhost:8000/signup", {
+        method: "POST",
+        body: JSON.stringify(input),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      //redux dispatch
+      props.addingUser(input)
+      //clearing fields
+      clearFields()
+      props.history.push("/")
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const clearFields = (e) => {
+    setInput({
+      username: "",
+      email: "",
+      password: ""
+    })
+  }
+
   return (
     <Background>
-      <Form>
-        <input />
-        <input />
-        <button>Login</button>
-      </Form>
+      <FormMoving>
+        <Form onSubmit={handleSubmit}>
+          <h3>Login</h3>
+          <label>E-mail</label>
+          <Inputs placeholder="email" onChange={handleInput} name="email" value={input.email} type="email" />
+          <label>Password</label>
+          <Inputs placeholder="password" onChange={handleInput} name="password" value={input.password} type="password" />
+          <br />
+          <Button>Submit</Button>
+          <div style={{ textAlign: "center", color: "red" }}>{error}</div>
+        </Form>
+      </FormMoving>
     </Background>
   )
 }
 
-export default Login
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addingUser: input => dispatch(addUser(input))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

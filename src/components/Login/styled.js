@@ -1,13 +1,44 @@
 import styled from "styled-components"
 
 export const Background = styled.div`
-  width: 100%;
+  background: linear-gradient(to right, #f12711, #f5af19);
   height: 100%;
-  background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+  padding: 27.8rem 30rem;
+`
+
+export const FormMoving = styled.div`
+position: absolute;
+top:0;
+bottom: 0;
+left: 0;
+right: 0;
+padding: 10rem;
 `
 
 export const Form = styled.form`
-  border: 1px solid yellow;
+  border-radius: 15px 50px; 
+  text-align: center;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  width: 14rem;
+  height: 22rem;
+  margin: 0 auto;
+  background: whitesmoke;
+  box-shadow: 5px 10px 8rem 10px #888888;
+`
+
+export const Inputs = styled.input`
+  padding: 1rem;
+`
+
+export const Button = styled.button`
+  background: white;
+  padding: 1rem;
+  border-radius: 50px;
+  &:hover {
+    background: linear-gradient(to right, #ba5370, #f4e2d8);
+    color:white;
+    transition: background 1000ms linear;
+  }
 `

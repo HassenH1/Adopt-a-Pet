@@ -42,49 +42,57 @@ function Home(props) {
     ));
   }
 
+  const withoutUser = () => {
+    return (
+      <>
+        {
+          props.user.username
+            ? <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome {props.user.username}!</h3>
+            : <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome</h3>
+        }
+        <div>
+          <div style={wrapperStyles}>
+            {data.animals && data.animals.length > 0 ? (
+              <div style={wrapperStyles}>
+                <Swipeable
+                  buttons={({ left, right }) => (
+                    <div style={actionsStyles}>
+                      <Button onClick={left}><i className="fa fa-times" style={{ color: "red", fontSize: "2rem" }}></i></Button>
+                      <Button onClick={right}><i className="fa fa-heart" style={{ color: "pink", fontSize: "1.5rem" }}></i></Button>
+                    </div>
+                  )}
+                  onAfterSwipe={remove}
+                >
+                  <Card>
+                    {
+                      data.animals && data.animals[0].photos.length === 0
+                        ? <div>No Image Available</div>
+                        : (
+                          <NavLink exact to={`/animal/${data.animals[0].id}`}><img src={data.animals[0].photos[0].full} alt="animals" style={{
+                            maxWidth: "100%",
+                            maxHeight: "100%",
+                            objectFit: "fill",
+                            backgroundSize: "cover", backgroundPosition: "center"
+                          }} /></NavLink>)
+                    }
+                  </Card>
+                </Swipeable>
+                {data.animals.length > 1 && <Card zIndex={-1}>{data.animals[1].type}</Card>}
+              </div>
+            ) : (
+                <div style={wrapperStylesEnd}>
+                  <Card>Sign up to see More...</Card>
+                </div>
+              )}
+          </div>
+        </div>
+      </>
+    )
+  }
+
   return (
     <BackgroundColor>
-      {
-        props.user.username
-          ? <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome {props.user.username}!</h3>
-          : <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome</h3>
-      }
-      <div>
-        <div style={wrapperStyles}>
-          {data.animals && data.animals.length > 0 ? (
-            <div style={wrapperStyles}>
-              <Swipeable
-                buttons={({ left, right }) => (
-                  <div style={actionsStyles}>
-                    <Button onClick={left}><i className="fa fa-times" style={{ color: "red", fontSize: "2rem" }}></i></Button>
-                    <Button onClick={right}><i className="fa fa-heart" style={{ color: "pink", fontSize: "1.5rem" }}></i></Button>
-                  </div>
-                )}
-                onAfterSwipe={remove}
-              >
-                <Card>
-                  {
-                    data.animals && data.animals[0].photos.length === 0
-                      ? <div>No Image Available</div>
-                      : (
-                        <NavLink exact to={`/animal/${data.animals[0].id}`}><img src={data.animals[0].photos[0].full} alt="animals" style={{
-                          maxWidth: "100%",
-                          maxHeight: "100%",
-                          objectFit: "fill",
-                          backgroundSize: "cover", backgroundPosition: "center"
-                        }} /></NavLink>)
-                  }
-                </Card>
-              </Swipeable>
-              {data.animals.length > 1 && <Card zIndex={-1}>{data.animals[1].type}</Card>}
-            </div>
-          ) : (
-              <div style={wrapperStylesEnd}>
-                <Card>Sign up to see More...</Card>
-              </div>
-            )}
-        </div>
-      </div>
+      {withoutUser}
     </BackgroundColor>
   )
 }
