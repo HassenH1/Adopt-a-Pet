@@ -1,11 +1,14 @@
 import React from 'react'
-import { Background } from "./styled"
+import { Background, Form } from "./styled"
 
 function Login() {
   return (
     <Background>
-      <div style={{padding: "27.8rem 30rem"}}>
-      </div>
+      <Form>
+        <input />
+        <input />
+        <button>Login</button>
+      </Form>
     </Background>
   )
 }

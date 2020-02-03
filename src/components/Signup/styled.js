@@ -16,7 +16,6 @@ padding: 10rem;
 `
 
 export const Form = styled.form`
-  border: 1px solid purple;
   border-radius: 15px 50px; 
   text-align: center;
   padding: 5rem;
@@ -25,8 +24,8 @@ export const Form = styled.form`
   width: 14rem;
   height: 22rem;
   margin: 0 auto;
-  background: antiquewhite;
-  
+  background: whitesmoke;
+  box-shadow: 5px 10px 8px 10px #888888;
 `
 
 export const Inputs = styled.input`
