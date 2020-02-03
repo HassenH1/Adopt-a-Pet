@@ -2,6 +2,7 @@ import React from 'react'
 import { BackgroundColor } from "./styled"
 import Pets from "../Pets"
 import { connect } from 'react-redux'
+import PetsWhenSignedIn from "../PetsWhenSignedIn"
 
 function Home(props) {
 
@@ -9,7 +10,7 @@ function Home(props) {
     <BackgroundColor>
       {
         props.user.username
-          ? ""
+          ? <PetsWhenSignedIn />
           : <Pets />
       }
     </BackgroundColor>
