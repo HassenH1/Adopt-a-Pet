@@ -1,12 +1,12 @@
 import React from "react";
 
 const buttonStyles = {
-  padding: "16px 24px",
+  padding: "20px 24px",
   background: "whitesmoke",
   cursor: "pointer",
+  borderRadius: 50,
   border: "none",
-  borderRadius: 3,
-  
+  outline:"none"
 };
 
 const Button = ({ children, onClick }) => (

@@ -13,7 +13,7 @@ const wrapperStylesEnd = { position: "relative", width: "350px", height: "250px"
 
 const actionsStyles = {
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "space-evenly",
   marginTop: 250,
 };
 
@@ -46,8 +46,8 @@ function Home(props) {
     <BackgroundColor>
       {
         props.user.username
-          ? <h3 style={{left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px"}}>Welcome {props.user.username}!</h3>
-          : <h3 style={{left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px"}}>Welcome</h3>
+          ? <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome {props.user.username}!</h3>
+          : <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome</h3>
       }
       <div>
         <div style={wrapperStyles}>
@@ -56,13 +56,12 @@ function Home(props) {
               <Swipeable
                 buttons={({ left, right }) => (
                   <div style={actionsStyles}>
-                    <Button onClick={left}>Reject</Button>
-                    <Button onClick={right}>Accept</Button>
+                    <Button onClick={left}><i className="fa fa-times" style={{ color: "red", fontSize: "2rem" }}></i></Button>
+                    <Button onClick={right}><i className="fa fa-heart" style={{ color: "pink", fontSize: "1.5rem" }}></i></Button>
                   </div>
                 )}
                 onAfterSwipe={remove}
               >
-                {/* <Card>{cards[0]}</Card> */}
                 <Card>
                   {
                     data.animals && data.animals[0].photos.length === 0

@@ -1,10 +1,12 @@
 import React from 'react'
+import { Background } from "./styled"
 
 function Login() {
   return (
-    <div>
-      Login Here!
-    </div>
+    <Background>
+      <div style={{padding: "27.8rem 30rem"}}>
+      </div>
+    </Background>
   )
 }
 

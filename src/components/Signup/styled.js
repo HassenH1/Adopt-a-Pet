@@ -1,8 +1,9 @@
 import styled from "styled-components"
 
 export const Background = styled.div`
-  background: white;
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
   height: 100%;
+  padding: 27.8rem 30rem;
 `
 
 export const FormMoving = styled.div`
