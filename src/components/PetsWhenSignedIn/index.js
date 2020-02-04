@@ -16,7 +16,6 @@ const actionsStyles = {
 
 function PetsWhenSignedIn(props) {
   const [data, setData] = useState({})
-  let a = 0
 
   const fetchingData = async () => {
     console.log("does it hit again here?")
@@ -32,8 +31,6 @@ function PetsWhenSignedIn(props) {
   }
 
   useEffect(() => {
-    a++
-    console.log(a, "<----------------counting how many times its going off")
     fetchingData()
   }, [])
 
@@ -79,10 +76,10 @@ function PetsWhenSignedIn(props) {
               {data.animals.length > 1 && <Card zIndex={-1}>{data.animals[1].type}</Card>}
             </div>
           ) : (
-            <div>
-              {() => fetchingData()}
-            </div>
-          )}
+                data.animals && data.animals.length === 0
+                  ? 
+                  : <h1>Nothing to see here</h1>
+              )}
         </div>
       </div>
     </>
