@@ -32,7 +32,7 @@ const tokenGet = async () => {
 let token = ""
 
 app.get("/", (req, res) => {
-  if(token === ""){
+  if (token === "") {
     tokenGet()
   }
 
