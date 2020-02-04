@@ -76,10 +76,10 @@ function PetsWhenSignedIn(props) {
               {data.animals.length > 1 && <Card zIndex={-1}>{data.animals[1].type}</Card>}
             </div>
           ) : (
-                data.animals && data.animals.length === 0
-                  ? 
-                  : <h1>Nothing to see here</h1>
-              )}
+              data.animals && data.animals.length === 0
+                ? <h1>We have a problem here</h1>
+                : <h1>And here too!</h1>
+            )}
         </div>
       </div>
     </>
