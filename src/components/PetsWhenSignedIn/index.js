@@ -8,8 +8,6 @@ import Card from "../Card";
 
 const wrapperStyles = { position: "relative", width: "350px", height: "250px", margin: "0 auto", paddingTop: "5rem" };
 
-const wrapperStylesEnd = { position: "relative", width: "350px", height: "250px", margin: "100px auto" };
-
 const actionsStyles = {
   display: "flex",
   justifyContent: "space-evenly",
@@ -21,6 +19,7 @@ function PetsWhenSignedIn(props) {
   let a = 0
 
   const fetchingData = async () => {
+    console.log("does it hit again here?")
     const data = await fetch("http://localhost:8000/", {
       method: "GET",
       headers: {
@@ -36,10 +35,7 @@ function PetsWhenSignedIn(props) {
     a++
     console.log(a, "<----------------counting how many times its going off")
     fetchingData()
-    if(data.animals.length === 0) {
-      fetchingData()
-    }
-  }, [data.animals])
+  }, [])
 
   const remove = () => {
     setData((data) => (
@@ -83,11 +79,10 @@ function PetsWhenSignedIn(props) {
               {data.animals.length > 1 && <Card zIndex={-1}>{data.animals[1].type}</Card>}
             </div>
           ) : (
-              <div style={wrapperStylesEnd}>
-                {console.log(data, "<--------------dude")}
-                <Card>Sign up to see More...</Card>
-              </div>
-            )}
+            <div>
+              {() => fetchingData()}
+            </div>
+          )}
         </div>
       </div>
     </>
@@ -104,17 +99,3 @@ export default compose(
   withRouter,
   connect(mapStateToProps)
 )(PetsWhenSignedIn)
-
-
-
-// import React from 'react'
-
-// function PetsWhenSignedIn() {
-//   return (
-//     <div>
-//       Hello world!
-//     </div>
-//   )
-// }
-
-// export default PetsWhenSignedIn
