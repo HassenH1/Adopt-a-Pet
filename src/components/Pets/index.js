@@ -36,12 +36,14 @@ function Pets(props) {
   }, [])
 
   const remove = () => {
-    setData((data) => (
-      { animals: [...data.animals.slice(1, data.animals.length)] }
-    ));
+    setData({
+      ...data,
+      animals: [...data.animals.slice(1, data.animals.length)]
+    })
   }
   return (
     <>
+      {console.log(data)}
       {
         props.user.username
           ? <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome {props.user.username}!</h3>

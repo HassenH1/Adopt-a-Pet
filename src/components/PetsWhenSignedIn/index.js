@@ -31,8 +31,13 @@ function PetsWhenSignedIn(props) {
   }
 
   useEffect(() => {
-    fetchingData()
-  }, [])
+    if (!data.animals) {
+      fetchingData()
+    }
+    else if (data.animals.length === 0) {
+      fetchingData()
+    }
+  }, [data])
 
   const remove = () => {
     setData((data) => (
@@ -44,7 +49,8 @@ function PetsWhenSignedIn(props) {
       {
         props.user.username
           ? <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome {props.user.username}!</h3>
-          : <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome</h3>
+          : <h3>Welcome0000000000</h3>
+        // <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome</h3>
       }
       <div>
         <div style={wrapperStyles}>
@@ -71,6 +77,7 @@ function PetsWhenSignedIn(props) {
                           backgroundSize: "cover", backgroundPosition: "center"
                         }} /></NavLink>)
                   }
+
                 </Card>
               </Swipeable>
               {data.animals.length > 1 && <Card zIndex={-1}>{data.animals[1].type}</Card>}

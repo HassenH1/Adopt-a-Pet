@@ -31,9 +31,9 @@ const tokenGet = async () => {
 
 let token = ""
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   if (token === "") {
-    tokenGet()
+    await tokenGet()
   }
 
   fetch('https://api.petfinder.com/v2/animals?sort=random', {
