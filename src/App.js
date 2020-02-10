@@ -17,6 +17,7 @@ function App(props) {
         {/* <Route exact path='/login' render={() => <Login />}></Route> */}
         <Route exact path='/login' component={Login}/>
         <Route exact path="/profile" component={Profile}/>
+        <Route exact path="animal/:id"/>
       </Switch>
     </div>
   );

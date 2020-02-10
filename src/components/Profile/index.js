@@ -2,12 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Body } from './styled'
 
-
 function Profile(props) {
   return (
-    <Body>
+    <div>
       <h1>Here is a Profile</h1>
-    </Body>
+    </div>
   )
 }
 
