@@ -15,6 +15,7 @@ export const Around = styled.div`
 `
 
 export const HeaderName = styled.h1`
+  border: 1px solid whitesmoke;
   border-radius: 25px;
   text-align: center;
   margin: 0 auto;
