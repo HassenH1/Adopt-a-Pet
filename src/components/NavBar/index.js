@@ -8,13 +8,6 @@ function NavBar(props) {
   return (
     <NLink>
       <Div>
-        {
-          props.location.pathname === `/animal/${props.match.params.id}`
-            ? <div>
-              <button>Click here</button>
-            </div>
-            : console.log("false?")
-        }
         <div>
           <Links exact to="/">Home</Links>
         </div>

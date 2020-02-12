@@ -31,3 +31,10 @@ export const Two = styled.div`
   height: 50vh;
   margin: auto 0;
 `
+
+export const Three = styled.div`
+  width: 10px;
+  display: flex;
+  margin: auto 0;
+  height: 80vh;
+`
