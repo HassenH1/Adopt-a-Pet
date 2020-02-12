@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { addUser } from '../redux/action'
-import { Background, Form, Inputs, Button, FormMoving } from "./styled"
+import { Background, Form, Inputs, Button, FormMoving, A } from "./styled"
 
 function Login(props) {
 
@@ -59,14 +59,15 @@ function Login(props) {
     <Background>
       <FormMoving>
         <Form onSubmit={handleSubmit}>
-          <h3 style={{margin: "0 0 2rem 0"}}>Login</h3>
-          <label>E-mail</label>
-          <Inputs placeholder="email" onChange={handleInput} name="email" value={input.email} type="email" />
-          <label>Password</label>
-          <Inputs placeholder="password" onChange={handleInput} name="password" value={input.password} type="password" />
+          <h1 style={{margin: "6rem 0 2rem 0"}}>Login</h1>
+          <Inputs placeholder="Email" onChange={handleInput} name="email" value={input.email} type="email" />
+          <Inputs placeholder="Password" onChange={handleInput} name="password" value={input.password} type="password" />
           <br />
           <Button>Submit</Button>
-          <div style={{ textAlign: "center", color: "red" }}>{error}</div>
+          <div style={{ textAlign: "center", color: "red", margin: "2rem" }}>{error}</div>
+          <div>
+            <p>Don't have an account? <A href="">Sign up</A></p>
+          </div>
         </Form>
       </FormMoving>
     </Background>

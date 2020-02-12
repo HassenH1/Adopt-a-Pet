@@ -8,6 +8,7 @@ export const Background = styled.div`
   background-position: 405px;
   background-size: cover;
   width: 100vw;
+  text-align: center;
 `
 
 export const FormMoving = styled.div`
@@ -16,33 +17,48 @@ top:0;
 bottom: 0;
 left: 0;
 right: 0;
-padding: 10rem;
+padding-top: 5rem;
 `
 
 export const Form = styled.form`
-  border-radius: 15px 50px; 
-  text-align: center;
-  padding: 5rem;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
-  width: 30rem;
-  height: 15rem;
-  margin: 0 auto;
+  width: 25rem;
+  height: 38rem;
   background: whitesmoke;
   box-shadow: 5px 10px 8rem 10px #888888;
+  align-item: center;
+  text-aligns: center;
+  margin: auto;
 `
 
 export const Inputs = styled.input`
+  border: none;
+  border-bottom: 2px solid black;
   padding: 1rem;
+  width: 18rem;
+  background-color: whitesmoke;
+  margin: 1rem auto;
+  font-size: 1.3rem;
+  ::placeholder {
+    font-size: 1.3rem;
+  }
 `
 
 export const Button = styled.button`
   background: white;
   padding: 1rem;
-  border-radius: 50px;
+  width: 20rem;
+  margin: 0 auto;
   &:hover {
     background: linear-gradient(to right, #ba5370, #f4e2d8);
     color:white;
     transition: background 1000ms linear;
   }
+`
+
+export const A = styled.a`
+  text-decoration: none;
+  color: blue;
 `
