@@ -1,10 +1,16 @@
 import React from 'react'
+import { Page, One, Two } from "./styled"
 
 function Showpage() {
   return (
-    <div>
-      <h1>This is the show page</h1>
-    </div>
+    <Page>
+      <One>
+        <h1>Image here</h1>
+      </One>
+      <Two>
+        <h1>Info here</h1>
+      </Two>
+    </Page>
   )
 }
 
