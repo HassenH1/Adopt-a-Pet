@@ -6,6 +6,7 @@ import Home from "./components/Home"
 import Signup from "./components/Signup"
 import Login from "./components/Login"
 import Profile from "./components/Profile"
+import Showpage from "./components/Showpage"
 
 function App(props) {
   return (
@@ -17,7 +18,7 @@ function App(props) {
         {/* <Route exact path='/login' render={() => <Login />}></Route> */}
         <Route exact path='/login' component={Login}/>
         <Route exact path="/profile" component={Profile}/>
-        <Route exact path="animal/:id"/>
+        <Route exact path="animal/:id" component={Showpage}/>
       </Switch>
     </div>
   );
