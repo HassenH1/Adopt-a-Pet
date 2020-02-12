@@ -8,12 +8,12 @@ function Profile(props) {
       <Around>
         <HeaderName>
           <Div>
-            <h1 style={{margin: "0"}}>Profile</h1>
+            <h1 style={{ margin: "0" }}>Profile</h1>
             <p>{props.user.username}</p>
           </Div>
           <Btn>Edit Username</Btn>
           <Yeah>
-            <h1 style={{margin: "0"}}>Hello world</h1>
+            <h1 style={{ margin: "0" }}>Hello world</h1>
           </Yeah>
         </HeaderName>
       </Around>
