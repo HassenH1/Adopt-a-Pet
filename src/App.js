@@ -17,7 +17,7 @@ function App(props) {
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/login' component={Login} />
         <Route exact path="/profile" component={Profile} />
-        <Route exact path="/animal/:id" component={() => <Showpage />} />
+        <Route exact path="/animal/:id" component={(props) => <Showpage {...props}/>} />
       </Switch>
     </div>
   );
