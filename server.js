@@ -58,6 +58,18 @@ app.post('/signup', async (req, res) => {
   }
 })
 
+app.get("/animal/:id", (req, res) => {
+  fetch(`https://api.petfinder.com/v2/animals/${req.params.id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token.access_token}`
+    }
+  })
+    .then(res => res.json())
+    .then(json => res.send(json));
+})
+
 app.listen(PORT, () => {
   console.log(`server running on ${PORT} port`)
 })

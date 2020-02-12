@@ -4,15 +4,28 @@ import { Page, One, Two, Outside } from "./styled"
 function Showpage(props) {
   const [pet, setPet] = useState()
 
-  // const fetchPet = async () => {
-  //   const data = await fetch("http://localhost:8000/")
-  // }
+  useEffect(() => {
+    const fetchPet = async () => {
+      const data = await fetch(`http://localhost:8000/animal/${props.match.params.id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        }
+      })
+      const dataBack = await data.json()
+      setPet({ ...dataBack })
+    }
+    fetchPet()
+  }, [props.match.params.id])
 
   return (
     <Page>
       <Outside>
         <One>
           <h1>Image here</h1>
+          {console.log(pet, "<------clicked pet")}
+          {console.log(props.match.params.id)}
         </One>
         <Two>
           <h1>Info here</h1>
