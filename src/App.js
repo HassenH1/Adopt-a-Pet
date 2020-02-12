@@ -13,15 +13,15 @@ function App(props) {
     <div>
       <NavBar />
       <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route exact path='/signup' component={Signup}/> 
-        {/* <Route exact path='/login' render={() => <Login />}></Route> */}
-        <Route exact path='/login' component={Login}/>
-        <Route exact path="/profile" component={Profile}/>
-        <Route exact path="animal/:id" component={Showpage}/>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/signup' component={Signup} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/animal/:id" component={() => <Showpage />} />
       </Switch>
     </div>
   );
 }
 
 export default withRouter(App);
+
