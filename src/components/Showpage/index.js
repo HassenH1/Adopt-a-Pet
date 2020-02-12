@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Page, One, Two, Outside } from "./styled"
+import { withRouter } from 'react-router-dom';
 
 function Showpage(props) {
   const [pet, setPet] = useState()
@@ -30,10 +31,11 @@ function Showpage(props) {
         <Two>
           <h1>Info here</h1>
           <h3>{props.match.params.id}</h3>
+          <button onClick={() => props.history.goBack(-1)}>Back</button>
         </Two>
       </Outside>
     </Page>
   )
 }
 
-export default Showpage
+export default withRouter(Showpage)
