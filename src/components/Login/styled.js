@@ -25,8 +25,8 @@ export const Form = styled.form`
   padding: 5rem;
   display: flex;
   flex-direction: column;
-  width: 14rem;
-  height: 22rem;
+  width: 30rem;
+  height: 15rem;
   margin: 0 auto;
   background: whitesmoke;
   box-shadow: 5px 10px 8rem 10px #888888;

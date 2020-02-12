@@ -59,7 +59,7 @@ function Login(props) {
     <Background>
       <FormMoving>
         <Form onSubmit={handleSubmit}>
-          <h3>Login</h3>
+          <h3 style={{margin: "0 0 2rem 0"}}>Login</h3>
           <label>E-mail</label>
           <Inputs placeholder="email" onChange={handleInput} name="email" value={input.email} type="email" />
           <label>Password</label>

@@ -1,16 +1,20 @@
 import styled from "styled-components"
 
 export const Background = styled.div`
-  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
-  height: 100%;
-  padding: 27.8rem 30rem;
+  height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1551730458-be400bef0161?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80);
+  margin: 0;
+  background-repeat: no-repeat, repeat;
+  background-position: 5px;
+  background-size: cover;
+  width: 100vw;
 `
 
 export const FormMoving = styled.div`
 position: absolute;
 top:0;
 bottom: 0;
-left: 0;
+left: 35rem;
 right: 0;
 padding: 10rem;
 `
