@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Body, HeaderName, Around, Yeah, Div, Btn } from './styled'
+import { Body, HeaderName, Around, Yeah, Div, Btn, AnotherAround } from './styled'
 
 function Profile(props) {
   return (
@@ -17,6 +17,9 @@ function Profile(props) {
           </Yeah>
         </HeaderName>
       </Around>
+      <AnotherAround>
+        <h1>Hello World</h1>
+      </AnotherAround>
     </Body>
   )
 }

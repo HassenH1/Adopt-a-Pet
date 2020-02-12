@@ -2,20 +2,26 @@ import styled from "styled-components"
 
 export const Body = styled.div`
   height: 100vh;
-  background-image: url(https://images.unsplash.com/photo-1555325084-b068599743c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2989&q=80);
   margin: 0;
-  background-repeat: no-repeat, repeat;
-  background-position: 405px;
-  background-size: cover;
   width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
 `
 
 export const Around = styled.div`
+  margin: 3rem 0;
   padding-top: 5rem;
 `
 
+export const AnotherAround = styled.div`
+  margin: 3rem 0;
+  padding-top: 5rem;
+  border: 1px solid red;
+  width: 40vw;
+`
+
 export const HeaderName = styled.h1`
-  border: 1px solid whitesmoke;
+  border: 5px solid whitesmoke;
   border-radius: 25px;
   text-align: center;
   margin: 0 auto;

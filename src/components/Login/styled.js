@@ -1,9 +1,13 @@
 import styled from "styled-components"
 
 export const Background = styled.div`
-  background: linear-gradient(to right, #f12711, #f5af19);
-  height: 100%;
-  padding: 27.8rem 30rem;
+  height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1555325084-b068599743c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2989&q=80);
+  margin: 0;
+  background-repeat: no-repeat, repeat;
+  background-position: 405px;
+  background-size: cover;
+  width: 100vw;
 `
 
 export const FormMoving = styled.div`
