@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Page, One, Two, Outside, Three } from "./styled"
 import { withRouter } from 'react-router-dom';
+import ImageGallery from 'react-image-gallery';
 
 function Showpage(props) {
   const [pet, setPet] = useState()
@@ -21,7 +22,7 @@ function Showpage(props) {
   }, [props.match.params.id])
 
   const images = pet && pet.animal.photos.map((elem) => {
-    return <img src={elem.full} alt={pet.animal.id} />
+    return <imgImageGallery items={elem} />
   })
   { console.log(pet && pet.animal.photos) }
 
