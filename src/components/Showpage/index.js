@@ -20,6 +20,11 @@ function Showpage(props) {
     fetchPet()
   }, [props.match.params.id])
 
+  const images = pet && pet.animal.photos.map((elem) => {
+    return <img src={elem} alt={pet.animal.id} />
+  })
+  { console.log(pet && pet.animal.photos) }
+
   return (
     <Page>
       <Three>
@@ -28,11 +33,11 @@ function Showpage(props) {
       <Outside>
         <One>
           <h1>Image here</h1>
-          {console.log(pet, "<------clicked pet")}
-          {console.log(props.match.params.id)}
+          <div>
+            {images}
+          </div>
         </One>
         <Two>
-          <h1>Info here</h1>
           <h3>{pet && pet.animal.name}</h3>
           <h3>{pet && pet.animal.type}</h3>
           <h3>{pet && pet.animal.breeds.primary}</h3>
