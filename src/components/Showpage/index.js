@@ -21,7 +21,7 @@ function Showpage(props) {
   }, [props.match.params.id])
 
   const images = pet && pet.animal.photos.map((elem) => {
-    return <img src={elem} alt={pet.animal.id} />
+    return <img src={elem.full} alt={pet.animal.id} />
   })
   { console.log(pet && pet.animal.photos) }
 
