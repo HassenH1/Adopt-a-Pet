@@ -32,16 +32,13 @@ function PetsWhenSignedIn(props) {
   }
 
   useEffect(() => {
-    const user = localStorage.getItem('user')
-    console.log(user, "<----------------------------------------current user")
-    props.addUser(user)
     if (!data.animals) {
       fetchingData()
     }
     else if (data.animals.length === 0) {
       fetchingData()
     }
-  }, [data])
+  }, [data, props])
 
   const remove = () => {
     setData((data) => (
@@ -50,12 +47,7 @@ function PetsWhenSignedIn(props) {
   }
   return (
     <>
-      {
-        props.user.username
-          ? <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome {props.user.username}!</h3>
-          : <h3>Welcome0000000000</h3>
-        // <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome</h3>
-      }
+      <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome {props.user.username}!</h3>
       <div>
         <div style={wrapperStyles}>
           {data.animals && data.animals.length > 0 ? (
