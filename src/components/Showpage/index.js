@@ -25,7 +25,7 @@ function Showpage(props) {
   const images = pet && pet.animal.photos.map((elem) => {
     return (
       <div>
-        <img src={elem.full} alt="pet" height="400" width="100"/>
+        <img src={elem.full} alt="pet" height="445" width="100"/>
       </div>
     )
   })
@@ -42,6 +42,7 @@ function Showpage(props) {
             dynamicHeight={false}
             swipeable={true}
             showStatus={true}
+            showThumbs={false}
           >
             {images}
           </Carousel>

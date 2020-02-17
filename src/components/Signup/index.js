@@ -30,13 +30,17 @@ function Signup(props) {
       return
     }
     try {
-      await fetch("http://localhost:8000/signup", {
+      const success = await fetch("http://localhost:8000/signup", {
         method: "POST",
         body: JSON.stringify(input),
         headers: {
           "Content-Type": "application/json"
         }
       })
+      const parsedSuccess = await success.json()
+      console.log(parsedSuccess, "<------------parsed Success")
+      //local storage
+      localStorage.setItem('user', JSON.stringify(input))
       //redux dispatch
       props.addingUser(input)
       //clearing fields

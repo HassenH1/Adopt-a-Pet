@@ -5,6 +5,7 @@ import { compose } from 'redux'
 import Swipeable from "react-swipy"
 import Button from "../Button";
 import Card from "../Card";
+import { addUser } from '../redux/action'
 
 const wrapperStyles = { position: "relative", width: "350px", height: "250px", margin: "0 auto", paddingTop: "5rem" };
 
@@ -31,6 +32,9 @@ function PetsWhenSignedIn(props) {
   }
 
   useEffect(() => {
+    const user = localStorage.getItem('user')
+    console.log(user, "<----------------------------------------current user")
+    props.addUser(user)
     if (!data.animals) {
       fetchingData()
     }
@@ -75,7 +79,7 @@ function PetsWhenSignedIn(props) {
                           maxHeight: "100%",
                           objectFit: "fill",
                           backgroundSize: "cover", backgroundPosition: "center"
-                        }} /></NavLink>)
+                        }} height="460" width="400" /></NavLink>)
                   }
                 </Card>
               </Swipeable>
@@ -95,7 +99,13 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addingUser: input => dispatch(addUser(input))
+  }
+}
+
 export default compose(
   withRouter,
-  connect(mapStateToProps)
+  connect(mapStateToProps, mapDispatchToProps)
 )(PetsWhenSignedIn)

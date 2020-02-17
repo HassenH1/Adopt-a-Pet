@@ -72,7 +72,7 @@ function Pets(props) {
                           maxHeight: "100%",
                           objectFit: "fill",
                           backgroundSize: "cover", backgroundPosition: "center"
-                        }} /></NavLink>)
+                        }} height="460" width="400"/></NavLink>)
                   }
                 </Card>
               </Swipeable>
