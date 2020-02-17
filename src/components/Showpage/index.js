@@ -22,7 +22,7 @@ function Showpage(props) {
   }, [props.match.params.id])
 
   const images = pet && pet.animal.photos.map((elem) => {
-    return <imgImageGallery items={elem} />
+    return <imgImageGallery items={elem.full} />
   })
   { console.log(pet && pet.animal.photos) }
 
