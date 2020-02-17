@@ -7,7 +7,6 @@ function Login(props) {
 
   const [input, setInput] = useState({
     email: "",
-    username: "",
     password: ""
   })
 
@@ -22,7 +21,7 @@ function Login(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (input.email === "" || input.username === "" || input.password === "") {
+    if (input.username === "" || input.password === "") {
       setError("Missing cetain Values")
       setTimeout(() => {
         setError("")
@@ -30,7 +29,7 @@ function Login(props) {
       return
     }
     try {
-      await fetch("http://localhost:8000/signup", {
+      await fetch("http://localhost:8000/login", {
         method: "POST",
         body: JSON.stringify(input),
         headers: {
@@ -38,10 +37,10 @@ function Login(props) {
         }
       })
       //redux dispatch
-      props.addingUser(input)
+      // props.addingUser(input)
       //clearing fields
       clearFields()
-      props.history.push("/")
+      // props.history.push("/")
     } catch (err) {
       console.log(err)
     }
@@ -49,7 +48,6 @@ function Login(props) {
 
   const clearFields = (e) => {
     setInput({
-      username: "",
       email: "",
       password: ""
     })
@@ -59,7 +57,7 @@ function Login(props) {
     <Background>
       <FormMoving>
         <Form onSubmit={handleSubmit}>
-          <h1 style={{margin: "6rem 0 2rem 0"}}>Login</h1>
+          <h1 style={{ margin: "6rem 0 2rem 0" }}>Login</h1>
           <Inputs placeholder="Email" onChange={handleInput} name="email" value={input.email} type="email" />
           <Inputs placeholder="Password" onChange={handleInput} name="password" value={input.password} type="password" />
           <br />

@@ -58,6 +58,19 @@ app.post('/signup', async (req, res) => {
   }
 })
 
+app.post("/login", async (req,res) => {
+  try{
+    const userFound = await User.findOne({username: req.body.username})
+    console.log(userFound, "<---------------------found the user")
+    if(userFound === []){
+      console.log("user not found")
+      res.send(err)
+    }
+  } catch(err) {
+    console.log(err)
+  }
+})
+
 app.get("/animal/:id", (req, res) => {
   fetch(`https://api.petfinder.com/v2/animals/${req.params.id}`, {
     method: "GET",
