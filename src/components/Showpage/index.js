@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Page, One, Two, Outside, Three } from "./styled"
 import { withRouter } from 'react-router-dom';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 function Showpage(props) {
   const [pet, setPet] = useState()
@@ -21,7 +23,11 @@ function Showpage(props) {
   }, [props.match.params.id])
 
   const images = pet && pet.animal.photos.map((elem) => {
-    return <img src={elem.full} />
+    return (
+      <div>
+        <img src={elem.full} alt="pet" />
+      </div>
+    )
   })
 
   return (
@@ -31,13 +37,16 @@ function Showpage(props) {
       </Three>
       <Outside>
         <One>
-          <h1>Image here</h1>
-          <div>
+          <Carousel autoPlay
+            showArrows={true}
+            dynamicHeight={false}
+            swipeable={true}
+            showStatus={true}
+          >
             {images}
-          </div>
+          </Carousel>
         </One>
         <Two>
-          {/* <img src={pet && pet.animal.photos.full}/> */}
           <h3>{pet && pet.animal.name}</h3>
           <h3>{pet && pet.animal.type}</h3>
           <h3>{pet && pet.animal.breeds.primary}</h3>
@@ -54,28 +63,3 @@ function Showpage(props) {
 }
 
 export default withRouter(Showpage)
-
-// animal:
-// id: 45497377
-// organization_id: "NJ742"
-// url: "https://www.petfinder.com/dog/mickey-hold-45497377/nj/succasunna/cold-nose-warm-heart-dog-rescue-nj742/?referrer_id=c93b6d4c-91f8-4b73-8a19-c73c800d6ecd"
-// type: "Dog"
-// species: "Dog"
-// breeds: {primary: "Labrador Retriever", secondary: "Beagle", mixed: true, unknown: false}
-// colors: {primary: null, secondary: null, tertiary: null}
-// age: "Baby"
-// gender: "Male"
-// size: "Medium"
-// coat: null
-// attributes: {spayed_neutered: false, house_trained: false, declawed: null, special_needs: false, shots_current: true}
-// environment: {children: null, dogs: null, cats: null}
-// tags: []
-// name: "Mickey-HOLD"
-// description: "15 beautiful puppies have arrived into the safety of our foster homes! We are unsure of their breed mix, but..."
-// photos: (5) [{…}, {…}, {…}, {…}, {…}]
-// status: "adopted"
-// status_changed_at: "2019-08-11T19:06:20+0000"
-// published_at: "2019-08-04T16:11:52+0000"
-// distance: null
-// contact: {email: "coldnosewarmheartdogrescue@gmail.com", phone: null, address: {…}}
-// _links: {self: {…}, type: {…}, organization: {…}}
