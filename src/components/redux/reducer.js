@@ -1,4 +1,4 @@
-import { ADD_USER } from "./action"
+import { ADD_USER, CLEAR_USER } from "./action"
 
 const initialUser = {
   user: ""
@@ -10,7 +10,11 @@ const userReducer = (state = initialUser, action) => {
       user: action.payload
     }
   }
-  console.log(state, "<----------state from reducer")
+  if(action.type === CLEAR_USER) {
+    return {
+      user: ""
+    }
+  }
   return state
 }
 

@@ -3,8 +3,16 @@ import { withRouter } from 'react-router-dom'
 import { NLink, Div, Links } from './styled'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
+import { clearUser } from '../redux/action'
+
 
 function NavBar(props) {
+
+  const logout = () => {
+    props.clearingUser()
+    localStorage.removeItem("user")
+  }
+
   return (
     <NLink>
       <Div>
@@ -19,7 +27,7 @@ function NavBar(props) {
           props.user
             ? <div style={{ width: "90px" }}>
               <Links exact to="/profile">Profile</Links>
-              <Links exact to="logout">Logout</Links>
+              <Links exact to="/" onClick={logout}>Logout</Links>
             </div>
             : <div style={{ width: "90px" }}>
               <Links exact to="/signup">SignUp</Links>
@@ -37,7 +45,13 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchtoProps = (dispatch) => {
+  return {
+    clearingUser: dispatch(clearUser())
+  }
+}
+
 export default compose(
   withRouter,
-  connect(mapStateToProps)
+  connect(mapStateToProps, mapDispatchtoProps)
 )(NavBar)

@@ -7,15 +7,16 @@ import { addUser } from '../redux/action'
 
 function Home(props) {
   useEffect(() => {
-    if (props.username) {
+    console.log(props, "<---------------------------props from home")
+    if (props && props.user === "") {
+      console.log("is it fucking hitting?")
       const user = localStorage.getItem("user")
-      props.addingUser(user)
+      props.addingUser(JSON.parse(user))
     }
-  }, [props])
+  }, [])
 
   return (
     <BackgroundColor>
-      {console.log(props, "<----------------------------------------------props is there or nah?")}
       {
         props.user.username
           ? <PetsWhenSignedIn />
@@ -38,8 +39,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
-
-// console.log(props, "<------------------------------------------props here")
-// const user = localStorage.getItem('user')
-// console.log(user, "<----------------------------------------current user")
-// props.addingUser(user)

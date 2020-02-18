@@ -20,15 +20,20 @@ function Pets(props) {
   const [data, setData] = useState({})
 
   const fetchingData = async () => {
-    const data = await fetch("http://localhost:8000/", {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    })
-    const dataJson = await data.json()
-    setData({ ...dataJson })
+    try {
+      const data = await fetch("http://localhost:8000/", {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      })
+      const dataJson = await data.json()
+      setData({ ...dataJson })
+
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   useEffect(() => {
@@ -72,7 +77,7 @@ function Pets(props) {
                           maxHeight: "100%",
                           objectFit: "fill",
                           backgroundSize: "cover", backgroundPosition: "center"
-                        }} height="460" width="400"/></NavLink>)
+                        }} height="460" width="400" /></NavLink>)
                   }
                 </Card>
               </Swipeable>
