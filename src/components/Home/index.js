@@ -7,11 +7,6 @@ import { addUser } from '../redux/action'
 
 function Home(props) {
   useEffect(() => {
-    //I have to keep switching here from null to "" just to make it work
-    // if (props.user === "") {
-      // const user = localStorage.getItem("user")
-      // props.addingUser(JSON.parse(user))
-    // }
     if (localStorage.getItem("user")) {
       const user = localStorage.getItem("user")
       props.addingUser(JSON.parse(user))
