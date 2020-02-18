@@ -36,8 +36,6 @@ function Login(props) {
           "Content-Type": "application/json"
         }
       })
-      //redux dispatch
-      // props.addingUser(input)
       //clearing fields
       clearFields()
       // props.history.push("/")
