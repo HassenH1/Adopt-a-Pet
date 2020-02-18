@@ -5,9 +5,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 import { clearUser } from '../redux/action'
 
-
 function NavBar(props) {
-
   const logout = () => {
     props.clearingUser()
     localStorage.removeItem("user")
@@ -47,7 +45,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchtoProps = (dispatch) => {
   return {
-    clearingUser: dispatch(clearUser())
+    clearingUser: () => dispatch(clearUser())
   }
 }
 
