@@ -5,18 +5,19 @@ import { connect } from 'react-redux'
 import PetsWhenSignedIn from "../PetsWhenSignedIn"
 import { addUser } from '../redux/action'
 
-function Home(props) {
+function Home({ addingUser, user}) {
+
   useEffect(() => {
     if (localStorage.getItem("user")) {
       const user = localStorage.getItem("user")
-      props.addingUser(JSON.parse(user))
+      addingUser(JSON.parse(user))
     }
-  }, [])
+  }, [addingUser])
 
   return (
     <BackgroundColor>
       {
-        props.user.username
+        user.username
           ? <PetsWhenSignedIn />
           : <Pets />
       }
