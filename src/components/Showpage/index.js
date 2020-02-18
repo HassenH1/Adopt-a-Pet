@@ -48,15 +48,23 @@ function Showpage(props) {
           </Carousel>
         </One>
         <Two>
-          <h3>{pet && pet.animal.name}</h3>
-          <h3>{pet && pet.animal.type}</h3>
-          <h3>{pet && pet.animal.breeds.primary}</h3>
-          <h3>{pet && pet.animal.age}</h3>
-          <h3>{pet && pet.animal.gender}</h3>
+          <h3>Name: {pet && pet.animal.name}</h3>
+          <h3>Type: {pet && pet.animal.type}</h3>
+          <h3>Breed: {pet && pet.animal.breeds.primary}</h3>
+          <h3>Age: {pet && pet.animal.age}</h3>
+          <h3>Gender: {pet && pet.animal.gender}</h3>
           <h3>{pet && pet.animal.description}</h3>
-          <h3>{pet && pet.animal.contact.email}</h3>
-          <h3>{pet && pet.animal.contact.phone}</h3>
-          <h3>{pet && pet.animal.contact.address.address1}</h3>
+          <h3>Email: {pet && pet.animal.contact.email}</h3>
+          {
+            pet && pet.animal.contact.phone
+              ? <h3>Phone: {pet && pet.animal.contact.phone}</h3>
+              : ""
+          }
+          {
+            pet && pet.animal.contact.address.address1
+              ? <h3>Address: {pet && pet.animal.contact.address.address1}</h3>
+              : ""
+          }
         </Two>
       </Outside>
     </Page>
