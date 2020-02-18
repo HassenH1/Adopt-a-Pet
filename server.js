@@ -58,16 +58,17 @@ app.post('/signup', async (req, res) => {
   }
 })
 
-app.post("/login", async (req,res) => {
-  try{
-    const userFound = await User.findOne({username: req.body.username})
+app.post("/login", async (req, res) => {
+  console.log(req.body)
+  try {
+    const userFound = await User.findOne({ email: req.body.email, password: req.body.password })
     console.log(userFound, "<---------------------found the user")
-    if(userFound === []){
-      console.log("user not found")
-      res.send(err)
+
+    if (userFound === null) {
+      res.status(401).send({ message: "User not found" })
     }
-  } catch(err) {
-    console.log(err)
+  } catch (err) {
+    res.send(err)
   }
 })
 

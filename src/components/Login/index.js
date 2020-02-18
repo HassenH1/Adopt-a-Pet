@@ -28,6 +28,7 @@ function Login(props) {
       }, 5000)
       return
     }
+
     try {
       await fetch("http://localhost:8000/login", {
         method: "POST",
@@ -35,12 +36,18 @@ function Login(props) {
         headers: {
           "Content-Type": "application/json"
         }
+      }).then((err) => {
+        console.log(err)
+        setError("wrong email or password")
+        setTimeout(() => {
+          setError("")
+        }, 5000)
       })
       //clearing fields
       clearFields()
       // props.history.push("/")
     } catch (err) {
-      console.log(err)
+      console.log("problem here")
     }
   }
 
