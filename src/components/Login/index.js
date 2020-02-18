@@ -36,7 +36,8 @@ function Login(props) {
         headers: {
           "Content-Type": "application/json"
         }
-      }).then((err) => {
+      })
+      .then((err) => {
         console.log(err)
         setError("wrong email or password")
         setTimeout(() => {
@@ -44,11 +45,11 @@ function Login(props) {
         }, 5000)
       })
       //clearing fields
-      clearFields()
-      // props.history.push("/")
     } catch (err) {
       console.log("problem here")
     }
+    clearFields()
+    props.history.push("/")
   }
 
   const clearFields = (e) => {
@@ -69,7 +70,7 @@ function Login(props) {
           <Button>Submit</Button>
           <div style={{ textAlign: "center", color: "red", margin: "2rem" }}>{error}</div>
           <div>
-            <p>Don't have an account? <A href="">Sign up</A></p>
+            <p>Don't have an account? <A href="/signup">Sign up</A></p>
           </div>
         </Form>
       </FormMoving>

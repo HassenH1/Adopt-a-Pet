@@ -19,7 +19,6 @@ export const Outside = styled.div`
 
 export const One = styled.div`
   width: 30vw;
-  border: 1px solid red;
   height: 50vh;
   margin: auto 0;
   text-align: center;
@@ -27,7 +26,6 @@ export const One = styled.div`
 
 export const Two = styled.div`
   width: 30vw;
-  border: 1px solid red;
   height: 50vh;
   margin: auto 0;
 `
