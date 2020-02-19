@@ -42,9 +42,9 @@ function Login(props) {
 
       if (parsedSome !== null) {
         console.log(parsedSome, "<-------------------------what is the input")
+        // localStorage.setItem('user', JSON.stringify(parsedSome.username))
         props.addingUser(parsedSome)
         clearFields()
-        localStorage.setItem('user', JSON.stringify(parsedSome.username))
         props.history.push("/")
       } else {
         setError("Either user or password is incorrect")
