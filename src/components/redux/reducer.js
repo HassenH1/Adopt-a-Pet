@@ -1,7 +1,8 @@
 import { ADD_USER, CLEAR_USER, STORE_PET } from "./action"
 
 const initialUser = {
-  user: ""
+  user: "",
+  pet: []
 }
 
 const userReducer = (state = initialUser, action) => {
@@ -16,10 +17,8 @@ const userReducer = (state = initialUser, action) => {
     }
   }
   if(action.type === STORE_PET){
-    console.log("hittin in the redux side")
-    return {
-
-    }
+    console.log(action.payload, ",---------------------------is this it?")
+    console.log(state.pet, "<-----------------------------------------pet state does it exists")
   }
   return state
 }
