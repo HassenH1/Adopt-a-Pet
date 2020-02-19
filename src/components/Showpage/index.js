@@ -25,7 +25,7 @@ function Showpage(props) {
   const images = pet && pet.animal.photos.map((elem) => {
     return (
       <div>
-        <img src={elem.full} alt="pet" height="445" width="100"/>
+        <img src={elem.full} alt="pet" height="445" width="100" />
       </div>
     )
   })
