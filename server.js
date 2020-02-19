@@ -64,9 +64,9 @@ app.post("/login", async (req, res) => {
     const userFound = await User.findOne({ email: req.body.email, password: req.body.password })
     console.log(userFound, "<---------------------found the user")
 
-    if (userFound === null) {
-      res.status(401).send({ message: "User not found" })
-    }
+    // if (userFound === null) {
+    //   res.status(401).send({ message: "User not found" })
+    // }
     res.json(userFound)
   } catch (err) {
     res.send(err)

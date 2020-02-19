@@ -38,10 +38,10 @@ function Signup(props) {
         }
       })
       const parsedSuccess = await success.json()
-      console.log(parsedSuccess, "<------------parsed Success")
       //local storage
       localStorage.setItem('user', JSON.stringify(input))
       //redux dispatch
+      console.log(input, "<------------------------------------------------------input for sign up")
       props.addingUser(input)
       //clearing fields
       clearFields()

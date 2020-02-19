@@ -30,26 +30,28 @@ function Login(props) {
     }
 
     try {
-      await fetch("http://localhost:8000/login", {
+      const some = await fetch("http://localhost:8000/login", {
         method: "POST",
         body: JSON.stringify(input),
         headers: {
           "Content-Type": "application/json"
         }
       })
-      .then((err) => {
-        console.log(err)
-        setError("wrong email or password")
-        setTimeout(() => {
-          setError("")
-        }, 5000)
-      })
       //clearing fields
+      const parsedSome = await some.json()
+
+      if (parsedSome !== null) {
+        console.log(parsedSome, "<-------------------------what is the input")
+        props.addingUser(parsedSome)
+        clearFields()
+        localStorage.setItem('user', JSON.stringify(parsedSome.username))
+        props.history.push("/")
+      } else {
+        setError("Either user or password is incorrect")
+      }
     } catch (err) {
       console.log("problem here")
     }
-    clearFields()
-    props.history.push("/")
   }
 
   const clearFields = (e) => {
