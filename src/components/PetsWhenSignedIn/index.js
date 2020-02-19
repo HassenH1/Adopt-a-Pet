@@ -59,6 +59,11 @@ function PetsWhenSignedIn(props) {
                     <Button onClick={right}><i className="fa fa-heart" style={{ color: "pink", fontSize: "1.5rem" }}></i></Button>
                   </div>
                 )}
+                onSwipe={(dir) => {
+                  if(dir === "right"){
+                    console.log(data.animals[0].name, " is going right!!!!!!!!")
+                  }
+                }}
                 onAfterSwipe={remove}
               >
                 <Card>
