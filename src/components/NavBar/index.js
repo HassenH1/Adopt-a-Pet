@@ -19,7 +19,6 @@ function NavBar(props) {
         </div>
         <div>
           Adopt-A-Pet
-          {console.log(props, "<---from navbar")}
         </div>
         {
           props.user

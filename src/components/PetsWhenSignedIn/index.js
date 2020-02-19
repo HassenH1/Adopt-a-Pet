@@ -5,7 +5,7 @@ import { compose } from 'redux'
 import Swipeable from "react-swipy"
 import Button from "../Button";
 import Card from "../Card";
-import { addUser } from '../redux/action'
+import { petHistory } from '../redux/action'
 
 const wrapperStyles = { position: "relative", width: "350px", height: "250px", margin: "0 auto", paddingTop: "5rem" };
 
@@ -49,6 +49,7 @@ function PetsWhenSignedIn(props) {
     <>
       <h3 style={{ left: "0", lineHeight: "200px", marginTop: "-100px", position: "absolute", textAlign: "center", top: "15%", width: "100%", fontSize: "25px" }}>Welcome {props.user.username}!</h3>
       <div>
+        {console.log(props, "<--------------------------------------from petsignup")}
         <div style={wrapperStyles}>
           {data.animals && data.animals.length > 0 ? (
             <div style={wrapperStyles}>
@@ -61,7 +62,8 @@ function PetsWhenSignedIn(props) {
                 )}
                 onSwipe={(dir) => {
                   if(dir === "right"){
-                    console.log(data.animals[0].name, " is going right!!!!!!!!")
+                    // console.log(data.animals[0].name, " is going right!!!!!!!!")
+                    props.addingPet(data.animals[0].name)
                   }
                 }}
                 onAfterSwipe={remove}
@@ -98,7 +100,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addingUser: input => dispatch(addUser(input))
+    addingPet: pet => dispatch(petHistory(pet))
   }
 }
 
