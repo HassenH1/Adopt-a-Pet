@@ -64,12 +64,9 @@ function Signup(props) {
       <FormMoving>
         <Form onSubmit={handleSubmit}>
           <h3>Sign Up</h3>
-          <label>Username</label>
-          <Inputs placeholder="username" onChange={handleInput} name="username" value={input.username} type="username" />
-          <label>E-mail</label>
-          <Inputs placeholder="email" onChange={handleInput} name="email" value={input.email} type="email" />
-          <label>Password</label>
-          <Inputs placeholder="password" onChange={handleInput} name="password" value={input.password} type="password" />
+          <Inputs placeholder="Username" onChange={handleInput} name="username" value={input.username} type="username" />
+          <Inputs placeholder="Email" onChange={handleInput} name="email" value={input.email} type="email" />
+          <Inputs placeholder="Password" onChange={handleInput} name="password" value={input.password} type="password" />
           <br />
           <Button>Submit</Button>
           <div style={{ textAlign: "center", color: "red" }}>{error}</div>

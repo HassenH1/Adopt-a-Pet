@@ -14,35 +14,51 @@ export const FormMoving = styled.div`
 position: absolute;
 top:0;
 bottom: 0;
-left: 35rem;
+left: 36rem;
 right: 0;
-padding: 10rem;
+padding-top: 9rem;
 `
 
 export const Form = styled.form`
-  border-radius: 15px 50px; 
-  text-align: center;
-  padding: 5rem;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
-  width: 14rem;
-  height: 22rem;
-  margin: 0 auto;
+  width: 20rem;
+  height: 31rem;
   background: whitesmoke;
   box-shadow: 5px 10px 8px 10px #888888;
+  align-item: center; 
+  text-align: center;
+  padding: 5rem;
+  margin: auto;
 `
 
 export const Inputs = styled.input`
+  border: none;
+  border-bottom: 2px solid black;
   padding: 1rem;
+  width: 18rem;
+  background-color: whitesmoke;
+  margin: 1rem auto;
+  font-size: 1.3rem;
+  ::placeholder {
+    font-size: 1.3rem;
+  }
 `
 
 export const Button = styled.button`
   background: white;
   padding: 1rem;
-  border-radius: 50px;
+  width: 20rem;
+  margin: 0 auto;
   &:hover {
     background: linear-gradient(to right, #ba5370, #f4e2d8);
     color:white;
     transition: background 1000ms linear;
   }
-`
+  `
+
+  export const A = styled.a`
+    text-decoration: none;
+    color: blue;
+  `

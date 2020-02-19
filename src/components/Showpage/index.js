@@ -63,7 +63,9 @@ function Showpage(props) {
           {
             pet && pet.animal.contact.address.address1
               ? <h3>Address: {pet && pet.animal.contact.address.address1}</h3>
-              : ""
+              : pet && pet.animal.contact.address.address2
+                ? <h3>Address: {pet && pet.animal.contact.address.address2}</h3>
+                : ""
           }
         </Two>
       </Outside>
